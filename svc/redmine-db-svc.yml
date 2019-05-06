@@ -1,13 +1,13 @@
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: redmine-db-svc
-#   labels:
-#     app: redmine-db-svc
-# spec:
-#   type: NodePort
-#   ports:
-#   - port: 3306
-#     protocol: TCP
-#   selector:
-#     appdb: redmine-db
+apiVersion: v1
+kind: Service
+metadata:
+  name: redmine-db-svc
+  labels:
+    app: redmine-db-svc
+spec:
+  type: NodePort
+  ports:
+  - port: 3306
+    protocol: TCP
+  selector:
+    appdb: redmine-db
