@@ -14,6 +14,10 @@ spec:
       labels:
         appdb: wp-db
     spec:
+      volumes:
+      - name: wp-pv-storage
+        persistentVolumeClaim:
+          claimName: wp-pvc
       containers:
       - name: wp-db
         image: mysql:latest
@@ -22,3 +26,6 @@ spec:
         envFrom:
         - configMapRef:
             name: wp-db-cm
+      volumeMounts:
+        - mountPath: "/var/lib/mysql"
+          name: wp-pv-storage
