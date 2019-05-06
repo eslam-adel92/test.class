@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: wp-ingress
+  namespace: default
+spec:
+  rules:
+  - host: test.class
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: wp-svc
+          servicePort: 8080
+      - path: /foo
+        backend:
+          serviceName: redmine-svc
+          servicePort: 8081
