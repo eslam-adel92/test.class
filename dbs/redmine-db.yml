@@ -6,6 +6,7 @@ metadata:
     appdb: redmine-db
 spec:
   replicas: 1
+  serviceName: redmine-db
   selector:
     matchLabels:
       appdb: redmine-db
@@ -26,6 +27,6 @@ spec:
         envFrom:
         - configMapRef:
             name: redmine-db-cm
-      volumeMounts:
-        - mountPath: "/var/lib/mysql"
-          name: redmine-pv-storage
+        volumeMounts:
+        - name: redmine-pv-storage
+          mountPath: "/var/lib/mysql"

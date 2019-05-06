@@ -6,6 +6,7 @@ metadata:
     appdb: wp-db
 spec:
   replicas: 1
+  serviceName: wp-db
   selector:
     matchLabels:
       appdb: wp-db
@@ -26,6 +27,7 @@ spec:
         envFrom:
         - configMapRef:
             name: wp-db-cm
-      volumeMounts:
-        - mountPath: "/var/lib/mysql"
-          name: wp-pv-storage
+        volumeMounts:
+        - name: wp-pv-storage
+          mountPath: "/var/lib/mysql"
+          
