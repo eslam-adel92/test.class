@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redmine-app
+  labels:
+    app: redminep-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redmine-app
+  template:
+    metadata:
+      labels:
+        app: redmine-app
+    spec:
+      containers:
+      - name: redmine-app
+        image: wordpress:latest
+        ports:
+        - containerPort: 3000
+          name: web-port
+        envFrom:
+        - configMapRef:
+            name: redmine-app-cm
