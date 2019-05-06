@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redmine-db
+  labels:
+    appdb: redmine-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      appdb: redmine-db
+  template:
+    metadata:
+      labels:
+        appdb: redmine-db
+    spec:
+      containers:
+      - name: redmine-db
+        image: mysql:latest
+        ports:
+        - containerPort: 3306
+        envFrom:
+        - configMapRef:
+            name: redmine-db-cm

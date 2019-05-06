@@ -8,11 +8,11 @@ spec:
   - host: test.class
     http:
       paths:
-      - path:
+      - path: /
         backend:
           serviceName: wp-svc
           servicePort: 8080
-      - path: /foo
+      - path: /redmine
         backend:
           serviceName: redmine-svc
           servicePort: 8081
