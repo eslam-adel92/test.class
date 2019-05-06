@@ -12,7 +12,7 @@ spec:
         backend:
           serviceName: wp-svc
           servicePort: 80
-      - path: /redmine
-        backend:
-          serviceName: redmine-svc
-          servicePort: 80
+      # - path: /redmine
+      #   backend:
+      #     serviceName: redmine-svc
+      #     servicePort: 80

@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: wp-db-cm
-
+  
 data:
-   MYSQL_ROOT_PASSWORD: "wordpress"
-   MYSQL_DATABASE: "wordpress"
+  MYSQL_ROOT_PASSWORD: "wordpress"
+  MYSQL_DATABASE: "wordpress"

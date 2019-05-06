@@ -5,6 +5,7 @@ metadata:
   labels:
     app: wp-db-svc
 spec:
+  type: NodePort
   ports:
   - port: 3306
     protocol: TCP

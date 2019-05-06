@@ -1,9 +1,9 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: redmine-app-cm
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: redmine-app-cm
 
-data:
-   REDMINE_DB_MYSQL: "redmine-db-svc"
-   REDMINE_DB_USERNAME: "root"
-   REDMINE_DB_PASSWORD: "redmine"
+# data:
+#    REDMINE_DB_MYSQL: "redmine-db-svc"
+#    REDMINE_DB_USERNAME: "root"
+#    REDMINE_DB_PASSWORD: "redmine"

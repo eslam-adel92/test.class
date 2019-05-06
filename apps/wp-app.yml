@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: wp-app
   labels:
-    app: wpp-app
+    app: wp-app
 spec:
   replicas: 1
   selector:
@@ -18,8 +18,8 @@ spec:
       - name: wp-app
         image: wordpress:latest
         ports:
-        - containerPort: 8080
-          name: web-port
+        - containerPort: 80
+          name: wp-port
         envFrom:
         - configMapRef:
             name: wp-app-cm

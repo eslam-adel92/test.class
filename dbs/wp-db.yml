@@ -21,7 +21,7 @@ spec:
           claimName: wp-pvc
       containers:
       - name: wp-db
-        image: mysql:latest
+        image: mysql:5.7
         ports:
         - containerPort: 3306
         envFrom:

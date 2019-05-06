@@ -1,32 +1,32 @@
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  name: redmine-db
-  labels:
-    appdb: redmine-db
-spec:
-  replicas: 1
-  serviceName: redmine-db
-  selector:
-    matchLabels:
-      appdb: redmine-db
-  template:
-    metadata:
-      labels:
-        appdb: redmine-db
-    spec:
-      volumes:
-      - name: redmine-pv-storage
-        persistentVolumeClaim:
-          claimName: redmine-pvc
-      containers:
-      - name: redmine-db
-        image: mysql:latest
-        ports:
-        - containerPort: 3306
-        envFrom:
-        - configMapRef:
-            name: redmine-db-cm
-        volumeMounts:
-        - name: redmine-pv-storage
-          mountPath: "/var/lib/mysql"
+# apiVersion: apps/v1
+# kind: StatefulSet
+# metadata:
+#   name: redmine-db
+#   labels:
+#     appdb: redmine-db
+# spec:
+#   replicas: 1
+#   serviceName: redmine-db
+#   selector:
+#     matchLabels:
+#       appdb: redmine-db
+#   template:
+#     metadata:
+#       labels:
+#         appdb: redmine-db
+#     spec:
+#       volumes:
+#       - name: redmine-pv-storage
+#         persistentVolumeClaim:
+#           claimName: redmine-pvc
+#       containers:
+#       - name: redmine-db
+#         image: mysql:latest
+#         ports:
+#         - containerPort: 3306
+#         envFrom:
+#         - configMapRef:
+#             name: redmine-db-cm
+#         volumeMounts:
+#         - name: redmine-pv-storage
+#           mountPath: "/var/lib/mysql"
