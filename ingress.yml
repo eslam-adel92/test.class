@@ -1,6 +1,8 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
   name: wp-ingress
   namespace: default
 spec:
@@ -8,11 +10,11 @@ spec:
   - host: test.class
     http:
       paths:
-      - path: /
-        backend:
-          serviceName: wp-svc
-          servicePort: 80
       - path: /redmine
         backend:
           serviceName: redmine-svc
           servicePort: 3000
+      - path: /
+        backend:
+          serviceName: wp-svc
+          servicePort: 80
